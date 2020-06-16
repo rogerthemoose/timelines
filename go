@@ -1,0 +1,1 @@
+clojure -A:fig -b dev -r

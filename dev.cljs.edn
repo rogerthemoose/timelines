@@ -1,0 +1,3 @@
+^{:watch-dirs   ["src/cljc" "dev/src"]
+  :ring-handler uk.rogerthemoose.timelines-example.server/handler}
+{:main uk.rogerthemoose.timelines-example.core}

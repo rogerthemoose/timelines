@@ -1,8 +1,11 @@
 (ns uk.rogerthemoose.timelines.layout.elements.label
   (:require [tick.alpha.api :as t]
+            [uk.rogerthemoose.timelines.specs :as s]
             [uk.rogerthemoose.timelines.layout.element :refer [bounds-of-element render-element render-bounds xy]]))
 
-(defn label [{:keys [text at line v-align align]}]
+(defn label [{:keys [text at line v-align align] :as m}]
+  {:pre [(s/check ::s/label m)]
+   :post [(s/check ::s/element %)]}
   {:element :label
    :text    text
    :at      (t/date at)
@@ -12,6 +15,7 @@
 
 (defmethod bounds-of-element :label
   [{:keys [at line v-align align text]}]
+  {:post [(s/check ::s/bounds %)]}
   (let [width (int (Math/ceil (* 6 (count text))))
         left (case align :start 0 :middle (int (/ width 2.0)) :end width)
         right (case align :start width :middle (int (/ width 2.0)) :end 0)

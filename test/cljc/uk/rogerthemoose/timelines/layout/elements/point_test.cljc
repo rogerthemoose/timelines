@@ -18,6 +18,6 @@
              (bounds-of-element p))))
 
     (testing "renders to svg"
-      (is (= [:circle.point {:cx "2019-09-01" :cy 1 :r 5}]
+      (is (= [:circle.point {:cx "2019-09-01" :cy 1 :r 3}]
              (render-element c-fn p))))))
 

@@ -1,8 +1,11 @@
 (ns uk.rogerthemoose.timelines.layout.elements.arrow
   (:require [tick.alpha.api :as t]
+            [uk.rogerthemoose.timelines.specs :as s]
             [uk.rogerthemoose.timelines.layout.element :refer [bounds-of-element render-element xy]]))
 
-(defn arrow [{:keys [at from-line to-line]}]
+(defn arrow [{:keys [at from-line to-line] :as m}]
+  {:pre [(s/check ::s/arrow m)]
+   :post [(s/check ::s/element %)]}
   {:element   :arrow
    :at        (t/date at)
    :from-line from-line
@@ -10,6 +13,7 @@
 
 (defmethod bounds-of-element :arrow
   [{:keys [at from-line to-line]}]
+  {:post [(s/check ::s/bounds %)]}
   {:from-date at
    :to-date   at
    :from-line from-line

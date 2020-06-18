@@ -12,10 +12,6 @@ for rendering events on a series of timelines
 
 `clojure -A:test`
 
-*to package*
-
-`clojure -A:uberjar`
-
 #### Elements
 
 * wrap svg objects with coordinates defined by line number (y-axis) and date (x-axis)

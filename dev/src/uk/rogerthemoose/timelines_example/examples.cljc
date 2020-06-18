@@ -13,7 +13,8 @@
                     [:.stop [:circle {:stroke :red :fill :red}]]
                     [:.timeline {:stroke :orange}]
                     [:.arrow {:stroke :blue :stroke-dasharray 4}]
-                    [:.point {:r 3}]]]])
+                    [:.point {:r 3}]
+                    ]]])
 
 (def label-sizes
   (let [options (assoc layout-options :y-top 5 :y-bottom 5 :line-height 10 :render-bounds? true)]

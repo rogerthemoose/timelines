@@ -1,15 +1,17 @@
 (ns uk.rogerthemoose.timelines.layout.elements.group
   (:require [clojure.string :as str]
+            [uk.rogerthemoose.timelines.specs :as s]
             [uk.rogerthemoose.timelines.layout.element :as e :refer [bounds-of-element render-element render-bounds]]))
 
-
 (defn group [classes elements]
+  {:post [(s/check ::s/element %)]}
   {:element     :group
    :classes     classes
    :composed-of elements})
 
 (defmethod bounds-of-element :group
   [{:keys [composed-of]}]
+  {:post [(s/check ::s/bounds %)]}
   (e/bounds-containing-all-elements composed-of))
 
 (defn- g-tag-for [classes]

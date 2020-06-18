@@ -95,8 +95,8 @@
     (is (= (l/layout [(timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})]
                      {:line-height 0 :x-padding 0 :y-top 0 :y-bottom 0})
 
-           [:svg.viz {:viewBox             "0 0 367 1"
-                      :preserveAspectRatio "xMidYMid meet"}
+           [:svg {:viewBox             "0 0 367 1"
+                  :preserveAspectRatio "xMidYMid meet"}
             [:line.timeline {:x1 0 :x2 366 :y1 0 :y2 0}]])))
 
   (testing "a couple of timelines with an overlap"
@@ -104,7 +104,7 @@
                       (timeline {:line 2 :from "2020-01-01" :to "2021-01-01"})]
                      {:line-height 20 :x-padding 0 :y-top 0 :y-bottom 0})
 
-           [:svg.viz {:viewBox             "0 0 489 31"
-                      :preserveAspectRatio "xMidYMid meet"}
+           [:svg {:viewBox             "0 0 489 31"
+                  :preserveAspectRatio "xMidYMid meet"}
             [:line.timeline {:x1 0 :x2 366 :y1 10 :y2 10}]
             [:line.timeline {:x1 122 :x2 488 :y1 30 :y2 30}]]))))

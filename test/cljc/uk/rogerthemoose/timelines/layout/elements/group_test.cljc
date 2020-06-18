@@ -26,8 +26,8 @@
 
     (testing "renders to svg"
       (is (= [:g.a.b.c
-              [:circle.point {:cx "2019-09-01" :cy 1 :r 5}]
-              [:circle.point {:cx "2019-10-01" :cy 2 :r 5}]]
+              [:circle.point {:cx "2019-09-01" :cy 1 :r 3}]
+              [:circle.point {:cx "2019-10-01" :cy 2 :r 3}]]
              (render-element c-fn g)))))
 
   (testing "classes can be specified in a few different ways"

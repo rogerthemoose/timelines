@@ -3,3 +3,4 @@
 .rebel_readline_history
 target/
 *.iml
+.DS_Store

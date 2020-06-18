@@ -34,6 +34,6 @@
                        :preserveAspectRatio "xMidYMid meet"}
           element-svg (map (partial element/render-element coordinator) elements)
           element-bounds-svg (when render-bounds? (filter (complement nil?) (map (partial element/render-bounds coordinator) elements)))]
-      `[:svg.viz ~svg-options
+      `[:svg ~svg-options
         ~@element-svg
         ~@element-bounds-svg])))

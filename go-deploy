@@ -1,0 +1,9 @@
+# build skinny jar
+clojure -A:pack \
+  mach.pack.alpha.skinny \
+  --no-libs \
+  --project-path target/timelines.jar
+
+# install deploy to clojars
+clojure -A:deploy
+

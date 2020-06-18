@@ -28,4 +28,7 @@
                       :main-opts  ["-m"]}
 
            :install  {:extra-deps {deps-deploy {:mvn/version "RELEASE"}}
-                      :main-opts  ["-m" "deps-deploy.deps-deploy" "install" "target/timelines-LOCAL.jar"]}}}
+                      :main-opts  ["-m" "deps-deploy.deps-deploy" "install" "target/timelines.jar"]}
+
+           :deploy   {:extra-deps {deps-deploy {:mvn/version "RELEASE"}}
+                      :main-opts  ["-m" "deps-deploy.deps-deploy" "deploy" "target/timelines.jar"]}}}

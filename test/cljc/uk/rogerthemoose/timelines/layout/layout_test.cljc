@@ -15,8 +15,8 @@
                             :x-padding   0})
            {:x      0
             :y      0
-            :width  1
-            :height 1}))
+            :width  13
+            :height 13}))
 
     (is (= (l/view-box-for [(point {:line 1 :at "2019-08-01"})
                             (point {:line 4 :at "2019-08-10"})]
@@ -26,8 +26,8 @@
                             :x-padding   20})
            {:x      0
             :y      0
-            :width  50
-            :height 146}))
+            :width  62
+            :height 158}))
 
     (is (= (l/view-box-for [(timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})
                             (timeline {:line 2 :from "2020-01-01" :to "2021-01-01"})]

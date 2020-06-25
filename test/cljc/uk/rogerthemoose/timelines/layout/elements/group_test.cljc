@@ -18,10 +18,10 @@
               :to-date   (t/date "2019-10-01")
               :from-line 1
               :to-line   2
-              :top       0
-              :bottom    0
-              :left      0
-              :right     0}
+              :top       4
+              :bottom    4
+              :left      4
+              :right     4}
              (bounds-of-element g))))
 
     (testing "renders to svg"

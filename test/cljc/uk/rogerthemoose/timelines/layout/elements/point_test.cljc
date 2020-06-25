@@ -8,14 +8,32 @@
 
 (deftest point-element
 
-  (let [p (point {:line 1 :at "2019-09-01"})]
+  (let [p (point {:line 1 :at "2019-09-01" :radius 3})
+        larger-p (point {:line 1 :at "2019-09-01" :radius 10})]
 
     (testing "has bounds"
       (is (= {:from-date (t/date "2019-09-01")
               :to-date   (t/date "2019-09-01")
               :from-line 1
-              :to-line   1}
-             (bounds-of-element p))))
+              :to-line   1
+              :left      4
+              :right     4
+              :top       4
+              :bottom    4}
+             (bounds-of-element p))
+          )
+
+      (is (= {:from-date (t/date "2019-09-01")
+              :to-date   (t/date "2019-09-01")
+              :from-line 1
+              :to-line   1
+              :left      11
+              :right     11
+              :top       11
+              :bottom    11}
+             (bounds-of-element larger-p))
+          )
+      )
 
     (testing "renders to svg"
       (is (= [:circle.point {:cx "2019-09-01" :cy 1 :r 3}]

@@ -1,7 +1,7 @@
 (ns uk.rogerthemoose.timelines.layout.elements.group
   (:require [clojure.string :as str]
             [uk.rogerthemoose.timelines.specs :as s]
-            [uk.rogerthemoose.timelines.layout.element :as e :refer [bounds-of-element render-element render-bounds]]))
+            [uk.rogerthemoose.timelines.layout.element :as e :refer [bounds-of-element render-element]]))
 
 (defn group [classes elements]
   {:post [(s/check ::s/element %)]}
@@ -25,9 +25,4 @@
 (defmethod render-element :group
   [c-fn {:keys [classes composed-of]}]
   (let [rendered (doall (map (partial render-element c-fn) composed-of))]
-    `[~(g-tag-for classes) ~@rendered]))
-
-(defmethod render-bounds :group
-  [c-fn {:keys [classes composed-of]}]
-  (let [rendered (doall (map (partial render-bounds c-fn) composed-of))]
     `[~(g-tag-for classes) ~@rendered]))

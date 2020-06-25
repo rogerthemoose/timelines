@@ -12,9 +12,7 @@
                     [:.go [:circle {:stroke :green :fill :green}]]
                     [:.stop [:circle {:stroke :red :fill :red}]]
                     [:.timeline {:stroke :orange}]
-                    [:.arrow {:stroke :blue :stroke-dasharray 4}]
-                    [:.point {:r 3}]
-                    ]]])
+                    [:.arrow {:stroke :blue :stroke-dasharray 4}]]]])
 
 (def label-sizes
   (let [options (assoc layout-options :y-top 5 :y-bottom 5 :line-height 10 :render-bounds? true)]
@@ -48,4 +46,5 @@
 
                            (api/group :.stop [(api/event {:at "2020-01-01" :line 2 :format "MMM-YY"})])
 
-                           (api/group :.go [(api/event {:at "2020-04-01" :line 2 :format "MMM-YY"})])])]])
+                           (api/group :.go [(api/event {:at "2020-04-01" :line 2 :format "MMM-YY"})])]
+                          layout-options)]])

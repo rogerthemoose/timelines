@@ -2,7 +2,7 @@
   (:require [tick.alpha.api :as t]
             [tick.locale-en-us]
             [uk.rogerthemoose.timelines.specs :as s]
-            [uk.rogerthemoose.timelines.layout.element :as e :refer [bounds-of-element render-element render-bounds xy]]
+            [uk.rogerthemoose.timelines.layout.element :as e :refer [bounds-of-element render-element xy]]
             [uk.rogerthemoose.timelines.layout.elements.point :refer [point]]
             [uk.rogerthemoose.timelines.layout.elements.label :refer [label]]))
 
@@ -25,9 +25,4 @@
 (defmethod render-element :event
   [c-fn {:keys [composed-of]}]
   (let [rendered (doall (map (partial render-element c-fn) composed-of))]
-    `[:g ~@rendered]))
-
-(defmethod render-bounds :event
-  [c-fn {:keys [composed-of]}]
-  (let [rendered (doall (map (partial render-bounds c-fn) composed-of))]
     `[:g ~@rendered]))

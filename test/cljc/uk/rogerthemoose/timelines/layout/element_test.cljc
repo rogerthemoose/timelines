@@ -29,10 +29,10 @@
             :to-date   (t/date "2022-08-01")
             :from-line 1
             :to-line   3
-            :left      0
-            :right     0
-            :top       0
-            :bottom    0}))
+            :left      4
+            :right     4
+            :top       4
+            :bottom    4}))
 
     (is (= (e/bounds-containing-all-elements [(timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})
                                               (timeline {:line 2 :from "2020-01-01" :to "2021-01-01"})])

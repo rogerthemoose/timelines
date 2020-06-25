@@ -15,6 +15,8 @@
 (s/def ::to-date ::date)
 (s/def ::at ::date)
 
+(s/def ::radius pos-int?)
+
 (defmulti element-type :element)
 
 (s/def ::timeline (s/keys :req-un [::line ::from ::to]))
@@ -23,7 +25,8 @@
   [_]
   (s/keys :req-un [::line ::from-date ::to-date]))
 
-(s/def ::point (s/keys :req-un [::line ::at]))
+(s/def ::point (s/keys :req-un [::line ::at]
+                       :opt-un [::radius]))
 
 (defmethod element-type :point
   [_]

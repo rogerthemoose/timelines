@@ -13,12 +13,23 @@
   [_ element]
   (throw (ex-info "Render not implemented for element" element)))
 
-(defmulti render-bounds (fn [_ {:keys [element]}] element))
-
-(defmethod render-bounds :default [_ _])
-
 (defn xy [{:keys [x y]}]
   [x y])
+
+(defn render-bounds
+  [c-fn element]
+  (let [{:keys [from-date from-line left right top bottom]} (bounds-of-element element)
+        [x y] (xy (c-fn from-line from-date))
+        y-top (- y (or top 0))
+        y-bottom (+ y (or bottom 0))
+        x-left (- x (or left 0))
+        x-right (+ x (or right 0))]
+    [:g.bounds
+     [:line {:x1 x-left :x2 x-right :y1 y-top :y2 y-top}]
+     [:line {:x1 x-left :x2 x-right :y1 y-bottom :y2 y-bottom}]
+     [:line {:x1 x-left :x2 x-left :y1 y-top :y2 y-bottom}]
+     [:line {:x1 x-right :x2 x-right :y1 y-top :y2 y-bottom}]]))
+
 
 (defn bounds-containing-all-elements [elements]
   (reduce

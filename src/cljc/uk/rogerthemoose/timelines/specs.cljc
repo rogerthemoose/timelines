@@ -25,6 +25,12 @@
   [_]
   (s/keys :req-un [::line ::from-date ::to-date]))
 
+(s/def ::x-spacer (s/keys :req-un [::line ::from ::to]))
+
+(defmethod element-type :x-spacer
+  [_]
+  (s/keys :req-un [::from-date ::to-date ::line]))
+
 (s/def ::point (s/keys :req-un [::line ::at]
                        :opt-un [::radius]))
 
@@ -58,4 +64,3 @@
 
 (s/def ::bounds (s/keys :req-un [::from-line ::to-line ::from-date ::to-date]
                         :opt-un [::top ::bottom ::left ::right]))
-

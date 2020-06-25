@@ -5,6 +5,7 @@
             [uk.rogerthemoose.timelines.layout.elements.arrow :as arrow-element]
             [uk.rogerthemoose.timelines.layout.elements.label :as label-element]
             [uk.rogerthemoose.timelines.layout.elements.event :as event-element]
+            [uk.rogerthemoose.timelines.layout.elements.x-spacer :as x-spacer-element]
             [uk.rogerthemoose.timelines.layout.layout :as layout]))
 
 
@@ -19,6 +20,8 @@
 (def label label-element/label)
 
 (def event event-element/event)
+
+(def x-spacer x-spacer-element/x-spacer)
 
 (defn svg-for
   ([elements]

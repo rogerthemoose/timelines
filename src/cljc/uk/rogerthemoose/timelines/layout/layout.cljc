@@ -32,8 +32,8 @@
     (let [coordinator (coordinator-for (element/bounds-containing-all-elements elements) options)
           svg-options {:viewBox             (str x " " y " " width " " height)
                        :preserveAspectRatio "xMidYMid meet"}
-          element-svg (map (partial element/render-element coordinator) elements)
-          element-bounds-svg (when render-bounds? (filter (complement nil?) (map (partial element/render-bounds coordinator) elements)))]
+          element-svg (remove nil? (map (partial element/render-element coordinator) elements))
+          element-bounds-svg (when render-bounds? (remove nil? (map (partial element/render-bounds coordinator) elements)))]
       `[:svg ~svg-options
         ~@element-svg
         ~@element-bounds-svg])))

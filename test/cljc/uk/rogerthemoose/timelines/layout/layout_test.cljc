@@ -1,7 +1,7 @@
 (ns uk.rogerthemoose.timelines.layout.layout-test
   (:require [clojure.test :refer :all]
             [tick.alpha.api :as t]
-            [uk.rogerthemoose.timelines.api :refer [point timeline]]
+            [uk.rogerthemoose.timelines.api :refer [point timeline x-spacer]]
             [uk.rogerthemoose.timelines.layout.layout :as l]))
 
 (deftest determining-bounds-of-elements
@@ -107,4 +107,23 @@
            [:svg {:viewBox             "0 0 489 31"
                   :preserveAspectRatio "xMidYMid meet"}
             [:line.timeline {:x1 0 :x2 366 :y1 10 :y2 10}]
-            [:line.timeline {:x1 122 :x2 488 :y1 30 :y2 30}]]))))
+            [:line.timeline {:x1 122 :x2 488 :y1 30 :y2 30}]])))
+
+  (testing "a non rendering x-spacer can be used to force layouts onto the same horizontal scale"
+    (let [common-x-spacer (x-spacer {:line 1 :from "2019-09-01" :to "2021-01-01"})
+          common-options {:line-height 20 :x-padding 0 :y-top 0 :y-bottom 0}
+          layout-1 (l/layout [common-x-spacer
+                              (timeline {:line 1 :from "2020-01-01" :to "2021-01-01"})]
+                             common-options)
+          layout-2 (l/layout [common-x-spacer
+                              (timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})]
+                             common-options)]
+      (is (= layout-1
+             [:svg {:viewBox             "0 0 489 11"
+                    :preserveAspectRatio "xMidYMid meet"}
+              [:line.timeline {:x1 122 :x2 488 :y1 10 :y2 10}]]))
+
+      (is (= layout-2
+             [:svg {:viewBox             "0 0 489 11"
+                    :preserveAspectRatio "xMidYMid meet"}
+              [:line.timeline {:x1 0 :x2 366 :y1 10 :y2 10}]])))))

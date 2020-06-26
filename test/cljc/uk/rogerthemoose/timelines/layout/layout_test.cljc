@@ -37,7 +37,7 @@
                             :y-bottom    0})
            {:x      0
             :y      0
-            :width  489
+            :width  490
             :height 31}))))
 
 (deftest coordinates-of-a-date-on-a-line
@@ -95,19 +95,19 @@
     (is (= (l/layout [(timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})]
                      {:line-height 0 :x-padding 0 :y-top 0 :y-bottom 0})
 
-           [:svg {:viewBox             "0 0 367 1"
+           [:svg {:viewBox             "0 0 368 1"
                   :preserveAspectRatio "xMidYMid meet"}
-            [:line.timeline {:x1 0 :x2 366 :y1 0 :y2 0}]])))
+            [:line.timeline {:x1 0 :x2 367 :y1 0 :y2 0}]])))
 
   (testing "a couple of timelines with an overlap"
     (is (= (l/layout [(timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})
                       (timeline {:line 2 :from "2020-01-01" :to "2021-01-01"})]
                      {:line-height 20 :x-padding 0 :y-top 0 :y-bottom 0})
 
-           [:svg {:viewBox             "0 0 489 31"
+           [:svg {:viewBox             "0 0 490 31"
                   :preserveAspectRatio "xMidYMid meet"}
-            [:line.timeline {:x1 0 :x2 366 :y1 10 :y2 10}]
-            [:line.timeline {:x1 122 :x2 488 :y1 30 :y2 30}]])))
+            [:line.timeline {:x1 0 :x2 367 :y1 10 :y2 10}]
+            [:line.timeline {:x1 122 :x2 489 :y1 30 :y2 30}]])))
 
   (testing "a non rendering x-spacer can be used to force layouts onto the same horizontal scale"
     (let [common-x-spacer (x-spacer {:line 1 :from "2019-09-01" :to "2021-01-01"})
@@ -119,11 +119,11 @@
                               (timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})]
                              common-options)]
       (is (= layout-1
-             [:svg {:viewBox             "0 0 489 11"
+             [:svg {:viewBox             "0 0 490 11"
                     :preserveAspectRatio "xMidYMid meet"}
-              [:line.timeline {:x1 122 :x2 488 :y1 10 :y2 10}]]))
+              [:line.timeline {:x1 122 :x2 489 :y1 10 :y2 10}]]))
 
       (is (= layout-2
-             [:svg {:viewBox             "0 0 489 11"
+             [:svg {:viewBox             "0 0 490 11"
                     :preserveAspectRatio "xMidYMid meet"}
-              [:line.timeline {:x1 0 :x2 366 :y1 10 :y2 10}]])))))
+              [:line.timeline {:x1 0 :x2 367 :y1 10 :y2 10}]])))))

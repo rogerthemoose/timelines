@@ -15,7 +15,7 @@
   [{:keys [line from-date to-date]}]
   {:post [(s/check ::s/bounds %)]}
   {:from-date from-date
-   :to-date   to-date
+   :to-date   (t/+ to-date (t/new-period 1 :days))
    :from-line line
    :to-line   line})
 

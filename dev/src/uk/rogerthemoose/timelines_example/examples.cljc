@@ -9,10 +9,13 @@
 
 (def example-css [[:.viz
                    [:svg {:stroke :black}
+                    [:rect {:fill-opacity "0.2" :stroke :none}]
                     [:text {:stroke :none}]
+                    [:.box-example
+                     [:circle {:stroke :none :fill-opacity "0.2"}]]
                     [:.go [:circle {:stroke :green :fill :green}]]
                     [:.stop [:circle {:stroke :red :fill :red}]]
-                    [:.timeline {:stroke :orange}]
+                    [:.timeline {:stroke :orange :stroke-width 1}]
                     [:.arrow {:stroke :blue :stroke-dasharray 4}]]]])
 
 (def label-sizes
@@ -31,8 +34,7 @@
                             options)]]))
 
 
-
-(def examples
+(def spacer-example
   (let [common-x-spacer (api/x-spacer {:from "2019-09-01" :to "2021-01-01" :line 1})]
     [:div
      [:h3 "with a common spacer both diagrams share their horizontal scale..."]
@@ -67,3 +69,26 @@
 
                              (api/group :.go [(api/event {:at "2020-04-01" :line 2 :format "MMM-YY"})])]
                             layout-options)]]))
+
+
+(def box-example
+  [:div.viz (api/svg-for [(api/group :.box-example
+                                     [(api/timeline {:line 1 :from "2019-08-01" :to "2019-08-31"})
+                                      (api/box {:line 1 :at "2019-08-31" :width 1})
+                                      (api/point {:line 1 :at "2019-08-31"})])
+                          (api/group :.box-example
+                                     [(api/timeline {:line 2 :from "2019-09-01" :to "2019-09-30"})
+                                      (api/box {:line 2 :at "2019-09-01" :width 1})
+                                      (api/point {:line 2 :at "2019-09-01"})])]
+                         {:x-padding      10
+                          :y-top          4
+                          :y-bottom       0
+                          :line-height    10
+                          :render-bounds? false})])
+
+(def examples
+  [:div
+   spacer-example
+   box-example
+   ;label-sizes
+   ])

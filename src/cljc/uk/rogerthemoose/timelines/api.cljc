@@ -2,6 +2,7 @@
   (:require [uk.rogerthemoose.timelines.layout.elements.timeline :as timeline-element]
             [uk.rogerthemoose.timelines.layout.elements.group :as group-element]
             [uk.rogerthemoose.timelines.layout.elements.point :as point-element]
+            [uk.rogerthemoose.timelines.layout.elements.box :as box-element]
             [uk.rogerthemoose.timelines.layout.elements.arrow :as arrow-element]
             [uk.rogerthemoose.timelines.layout.elements.label :as label-element]
             [uk.rogerthemoose.timelines.layout.elements.event :as event-element]
@@ -14,6 +15,8 @@
 (def timeline timeline-element/timeline)
 
 (def point point-element/point)
+
+(def box box-element/box)
 
 (def arrow arrow-element/arrow)
 

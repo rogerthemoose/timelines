@@ -11,7 +11,7 @@
     (is (= (e/bounds-containing-all-elements [(timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})])
 
            {:from-date (t/date "2019-09-01")
-            :to-date   (t/date "2020-09-01")
+            :to-date   (t/date "2020-09-02")
             :from-line 1
             :to-line   1
             :left      0
@@ -37,7 +37,7 @@
     (is (= (e/bounds-containing-all-elements [(timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})
                                               (timeline {:line 2 :from "2020-01-01" :to "2021-01-01"})])
            {:from-date (t/date "2019-09-01")
-            :to-date   (t/date "2021-01-01")
+            :to-date   (t/date "2021-01-02")
             :from-line 1
             :to-line   2
             :left      0

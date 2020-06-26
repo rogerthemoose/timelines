@@ -16,6 +16,8 @@
 (s/def ::at ::date)
 
 (s/def ::radius pos-int?)
+(s/def ::width pos-int?)
+(s/def ::height pos-int?)
 
 (defmulti element-type :element)
 
@@ -37,6 +39,13 @@
 (defmethod element-type :point
   [_]
   (s/keys :req-un [::line ::at]))
+
+(s/def ::box (s/keys :req-un [::line ::at]
+                     :opt-un [::width ::height]))
+
+(defmethod element-type :box
+  [_]
+  (s/keys :req-un [::line ::at ::width ::height]))
 
 (s/def ::arrow (s/keys :req-un [::from-line ::to-line ::at]))
 

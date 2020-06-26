@@ -1,6 +1,7 @@
 (ns uk.rogerthemoose.timelines.layout.layout
   (:require [tick.alpha.api :as t]
-            [uk.rogerthemoose.timelines.layout.element :as element :refer [xy]]))
+            [uk.rogerthemoose.timelines.layout.element :as element :refer [xy]]
+            [uk.rogerthemoose.timelines.layout.elements.x-spacer :refer [x-spacer]]))
 
 (defn coordinator-for
   ([bounds]
@@ -26,6 +27,10 @@
      :y      0
      :width  (inc (+ x x-padding left right))
      :height (inc (+ y y-top y-bottom top bottom))}))
+
+(defn x-spacer-for [elements]
+  (let [{:keys [from-date to-date from-line]} (element/bounds-containing-all-elements elements)]
+    (x-spacer {:from from-date :to to-date :line from-line})))
 
 (defn layout [elements {:keys [render-bounds?] :as options}]
   (let [{:keys [x y width height]} (view-box-for elements options)]

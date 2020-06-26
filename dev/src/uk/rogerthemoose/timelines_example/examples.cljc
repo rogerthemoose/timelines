@@ -35,40 +35,41 @@
 
 
 (def spacer-example
-  (let [common-x-spacer (api/x-spacer {:from "2019-09-01" :to "2021-01-01" :line 1})]
+  (let [group-1 [(api/timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})
+
+                 (api/group
+                   :.go
+                   [(api/point {:at "2019-09-01" :line 1})
+                    (api/label {:at "2019-09-01" :line 1 :v-align :bottom :align :start :text "WIBBLE"})])
+
+                 (api/group :.go [(api/event {:at "2020-01-01" :line 1 :format "MMM-YY"})])]
+
+        group-2 [(api/timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})
+
+                 (api/group
+                   :.go
+                   [(api/point {:at "2019-09-01" :line 1})
+                    (api/label {:at "2019-09-01" :line 1 :v-align :bottom :align :start :text "WIBBLE"})])
+
+                 (api/group :.go [(api/event {:at "2020-01-01" :line 1 :format "MMM-YY"})])
+
+                 (api/arrow {:at "2020-02-01" :from-line 1 :to-line 2})
+
+                 (api/timeline {:line 2 :from "2020-01-01" :to "2021-01-01"})
+
+                 (api/group :.stop [(api/event {:at "2020-01-01" :line 2 :format "MMM-YY"})])
+
+                 (api/group :.go [(api/event {:at "2020-04-01" :line 2 :format "MMM-YY"})])]
+
+        common-x-spacer (api/x-spacer-for (concat group-1 group-2))]
     [:div
      [:h3 "with a common spacer both diagrams share their horizontal scale..."]
-     [:div.viz (api/svg-for [common-x-spacer
-                             (api/timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})
 
-                             (api/group
-                               :.go
-                               [(api/point {:at "2019-09-01" :line 1})
-                                (api/label {:at "2019-09-01" :line 1 :v-align :bottom :align :start :text "WIBBLE"})])
-
-                             (api/group :.go [(api/event {:at "2020-01-01" :line 1 :format "MMM-YY"})])]
-                            layout-options)]
+     [:div.viz (api/svg-for (conj group-1 common-x-spacer) layout-options)]
 
      [:h3 "...so you can pop your own markup in between transitions"]
 
-     [:div.viz (api/svg-for [common-x-spacer
-                             (api/timeline {:line 1 :from "2019-09-01" :to "2020-09-01"})
-
-                             (api/group
-                               :.go
-                               [(api/point {:at "2019-09-01" :line 1})
-                                (api/label {:at "2019-09-01" :line 1 :v-align :bottom :align :start :text "WIBBLE"})])
-
-                             (api/group :.go [(api/event {:at "2020-01-01" :line 1 :format "MMM-YY"})])
-
-                             (api/arrow {:at "2020-02-01" :from-line 1 :to-line 2})
-
-                             (api/timeline {:line 2 :from "2020-01-01" :to "2021-01-01"})
-
-                             (api/group :.stop [(api/event {:at "2020-01-01" :line 2 :format "MMM-YY"})])
-
-                             (api/group :.go [(api/event {:at "2020-04-01" :line 2 :format "MMM-YY"})])]
-                            layout-options)]]))
+     [:div.viz (api/svg-for (conj group-2 common-x-spacer) layout-options)]]))
 
 
 (def box-example

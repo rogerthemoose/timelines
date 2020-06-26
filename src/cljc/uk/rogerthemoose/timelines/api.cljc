@@ -26,6 +26,9 @@
 
 (def x-spacer x-spacer-element/x-spacer)
 
+(defn x-spacer-for [elements]
+  (layout/x-spacer-for elements))
+
 (defn svg-for
   ([elements]
    (layout/layout elements {:x-padding 150 :y-top 0 :y-bottom 0 :line-height 50}))

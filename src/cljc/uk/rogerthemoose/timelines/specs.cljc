@@ -18,6 +18,9 @@
 (s/def ::radius pos-int?)
 (s/def ::width pos-int?)
 (s/def ::height pos-int?)
+(s/def ::margin nat-int?)
+(s/def ::margin-top nat-int?)
+(s/def ::margin-bottom nat-int?)
 
 (defmulti element-type :element)
 
@@ -47,11 +50,12 @@
   [_]
   (s/keys :req-un [::line ::at ::width ::height]))
 
-(s/def ::arrow (s/keys :req-un [::from-line ::to-line ::at]))
+(s/def ::arrow (s/keys :req-un [::from-line ::to-line ::at]
+                       :opt-un [::margin ::margin-top ::margin-bottom]))
 
 (defmethod element-type :arrow
   [_]
-  (s/keys :req-un [::from-line ::to-line ::at]))
+  (s/keys :req-un [::from-line ::to-line ::at ::margin-top ::margin-bottom]))
 
 (s/def ::label (s/keys :req-un [::line ::at ::text]))
 

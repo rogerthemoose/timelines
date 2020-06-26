@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>uk.rogerthemoose</groupId>
   <artifactId>timelines</artifactId>
-  <version>0.1.1</version>
+  <version>0.2.0-alpha</version>
   <name>timelines</name>
   <description>simple svg rendering utility</description>
   <licenses>

@@ -1,5 +1,7 @@
 # Timelines
 
+[![Clojars Project](https://img.shields.io/clojars/v/uk.rogerthemoose/timelines.svg)](https://clojars.org/uk.rogerthemoose/timelines)
+
 for rendering events on a series of timelines
 
 #### Development

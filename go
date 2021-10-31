@@ -1,1 +1,1 @@
-clojure -A:fig -b dev -r
+clojure -M:fig -b dev -r

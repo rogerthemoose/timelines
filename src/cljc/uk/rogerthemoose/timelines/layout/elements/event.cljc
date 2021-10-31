@@ -1,5 +1,5 @@
 (ns uk.rogerthemoose.timelines.layout.elements.event
-  (:require [tick.alpha.api :as t]
+  (:require [tick.core :as t]
             [tick.locale-en-us]
             [uk.rogerthemoose.timelines.specs :as s]
             [uk.rogerthemoose.timelines.layout.element :as e :refer [bounds-of-element render-element xy]]

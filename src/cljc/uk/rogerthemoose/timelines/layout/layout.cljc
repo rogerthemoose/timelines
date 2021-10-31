@@ -1,5 +1,5 @@
 (ns uk.rogerthemoose.timelines.layout.layout
-  (:require [tick.alpha.api :as t]
+  (:require [tick.core :as t]
             [uk.rogerthemoose.timelines.layout.element :as element :refer [xy]]
             [uk.rogerthemoose.timelines.layout.elements.x-spacer :refer [x-spacer]]))
 

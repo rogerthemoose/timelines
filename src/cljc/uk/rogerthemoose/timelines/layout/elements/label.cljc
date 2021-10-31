@@ -1,5 +1,5 @@
 (ns uk.rogerthemoose.timelines.layout.elements.label
-  (:require [tick.alpha.api :as t]
+  (:require [tick.core :as t]
             [uk.rogerthemoose.timelines.specs :as s]
             [uk.rogerthemoose.timelines.layout.element :refer [bounds-of-element render-element xy]]))
 

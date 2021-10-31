@@ -1,1 +1,1 @@
-clojure -A:test
+clojure -M:test

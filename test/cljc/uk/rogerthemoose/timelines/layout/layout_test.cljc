@@ -1,6 +1,6 @@
 (ns uk.rogerthemoose.timelines.layout.layout-test
   (:require [clojure.test :refer :all]
-            [tick.alpha.api :as t]
+            [tick.core :as t]
             [uk.rogerthemoose.timelines.api :refer [point timeline]]
             [uk.rogerthemoose.timelines.layout.layout :as l]
             [uk.rogerthemoose.timelines.layout.layout :as layout]))

@@ -1,6 +1,6 @@
 (ns uk.rogerthemoose.timelines.layout.elements.group-test
   (:require [clojure.test :refer :all]
-            [tick.alpha.api :as t]
+            [tick.core :as t]
             [uk.rogerthemoose.timelines.layout.element :refer [bounds-of-element render-element]]
             [uk.rogerthemoose.timelines.layout.elements.point :refer [point]]
             [uk.rogerthemoose.timelines.layout.elements.group :refer [group]]))

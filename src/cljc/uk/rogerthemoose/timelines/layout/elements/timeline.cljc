@@ -1,5 +1,5 @@
 (ns uk.rogerthemoose.timelines.layout.elements.timeline
-  (:require [tick.alpha.api :as t]
+  (:require [tick.core :as t]
             [uk.rogerthemoose.timelines.specs :as s]
             [uk.rogerthemoose.timelines.layout.element :refer [bounds-of-element render-element xy]]))
 
@@ -15,7 +15,7 @@
   [{:keys [from-date to-date line]}]
   {:post [(s/check ::s/bounds %)]}
   {:from-date from-date
-   :to-date   (t/+ to-date (t/new-period 1 :days))
+   :to-date   (t/>> to-date (t/new-period 1 :days))
    :from-line line
    :to-line   line})
 

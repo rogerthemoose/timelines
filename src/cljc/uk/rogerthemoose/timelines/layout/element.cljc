@@ -1,5 +1,5 @@
 (ns uk.rogerthemoose.timelines.layout.element
-  (:require [tick.alpha.api :as t]))
+  (:require [tick.core :as t]))
 
 (defmulti bounds-of-element :element)
 

@@ -1,6 +1,6 @@
 (ns uk.rogerthemoose.timelines.layout.element-test
   (:require [clojure.test :refer :all]
-            [tick.alpha.api :as t]
+            [tick.core :as t]
             [uk.rogerthemoose.timelines.api :refer [timeline point label]]
             [uk.rogerthemoose.timelines.layout.element :as e]))
 
